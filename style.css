@@ -1,0 +1,887 @@
+
+/* ========================================
+   1. GLOBAL STYLES
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #8b5cf6;
+    --primary-dark: #7c3aed;
+    --secondary: #06b6d4;
+    --background: #0b1120;
+    --surface: #111b2e;
+    --surface-light: #17243b;
+    --text: #f1f5f9;
+    --text-muted: #a6b4ca;
+    --border: rgba(148, 163, 184, 0.18);
+    --radius: 18px;
+    --shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #071717;
+    background-image:
+        radial-gradient(
+            ellipse at 10% 10%,
+            rgba(20, 184, 166, 0.18),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 90% 30%,
+            rgba(16, 185, 129, 0.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 50% 90%,
+            rgba(14, 116, 144, 0.12),
+            transparent 40%
+        );
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+}
+
+
+::selection {
+    background: var(--primary);
+    color: white;
+}
+
+a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #a78bfa;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ========================================
+   2. HEADER
+======================================== */
+
+header {
+    text-align: center;
+    padding: 65px 20px 35px;
+    background: linear-gradient(
+        135deg,
+        #102c2b 0%,
+        #102522 45%,
+        #102033 100%
+    );
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+    background: linear-gradient(
+        90deg,
+        #c4b5fd,
+        #67e8f9
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+}
+
+
+/* ========================================
+   3. NAVIGATION MENU
+======================================== */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: white;
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(139, 92, 246, 0.3);
+}
+
+
+/* ========================================
+   4. MAIN CONTENT
+======================================== */
+
+main {
+    width: min(1100px, 90%);
+    margin: 50px auto;
+}
+
+section {
+    
+    background: linear-gradient(
+        135deg,
+        #102c2b 0%,
+        #102522 45%,
+        #102033 100%
+    );
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 35px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    scroll-margin-top: 25px;
+    transition:
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+section:hover {
+    border-color: rgba(139, 92, 246, 0.45);
+}
+
+h2 {
+    color: #c4b5fd;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    color: #67e8f9;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+section p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 14px;
+}
+
+
+/* ========================================
+   5. PROFILE PICTURE
+======================================== */
+
+#about img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    padding: 4px;
+    background: var(--surface);
+    margin: 0 auto 28px;
+    box-shadow: 0 0 35px rgba(139, 92, 246, 0.25);
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+#about img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 45px rgba(6, 182, 212, 0.3);
+}
+
+
+/* ========================================
+   6. SKILLS SECTION
+======================================== */
+
+#skills ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(180px, 1fr)
+    );
+    gap: 12px;
+    margin-top: 12px;
+}
+
+#skills li {
+    color: var(--text);
+    background: rgba(139, 92, 246, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+#skills li::before {
+    content: "✦";
+    color: var(--secondary);
+    margin-right: 10px;
+}
+
+#skills li:hover {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   7. SOCIAL LINKS
+======================================== */
+
+#about a {
+    display: inline-block;
+    font-weight: 600;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(6, 182, 212, 0.06);
+    margin: 4px 8px 4px 0;
+}
+
+#about a:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   8. CONTACT FORM
+======================================== */
+
+#contact form {
+    margin-top: 25px;
+}
+
+#contact label {
+    display: inline-block;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: rgba(5, 11, 24, 0.65);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 15px;
+    outline: none;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#contact input {
+    margin-bottom: 18px;
+}
+
+#contact textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #7f91aa;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.13);
+}
+
+#contact button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 13px 28px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+    );
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
+}
+
+#contact button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(139, 92, 246, 0.35);
+}
+
+#contact button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   9. FOOTER
+======================================== */
+
+footer {
+    text-align: center;
+    padding: 28px 20px;
+    border-top: 1px solid var(--border);
+    background: rgba(17, 27, 46, 0.7);
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+/* ========================================
+   10. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    header {
+        padding: 45px 18px 28px;
+    }
+
+    main {
+        width: 92%;
+        margin: 30px auto;
+    }
+
+    section {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+    }
+
+    #skills ul {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(140px, 1fr)
+        );
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        padding: 9px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+        letter-spacing: -0.7px;
+    }
+
+    header p {
+        font-size: 0.95rem;
+    }
+
+    main {
+        width: 94%;
+        margin: 22px auto;
+    }
+
+    section {
+        padding: 22px 16px;
+        border-radius: 14px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+    }
+
+    #about img {
+        width: 150px;
+        height: 150px;
+    }
+
+    #skills ul {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        padding: 8px 13px;
+    }
+
+    #contact button {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   11. ACCESSIBILITY
+======================================== */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* ========================================
+   MIDNIGHT AURORA - LAYOUT POLISH
+======================================== */
+
+/* Better spacing inside the About section */
+#about {
+    padding: 42px;
+}
+
+/* Keep the profile image nicely centered */
+#about img {
+    margin: 0 auto 30px;
+}
+
+/* Improve paragraph readability */
+#about p {
+    max-width: 850px;
+    margin-bottom: 18px;
+    line-height: 1.9;
+}
+
+/* Give section headings more breathing room */
+section h2 {
+    margin-bottom: 24px;
+}
+
+/* Keep the skills headings consistent */
+#skills h3 {
+    margin-top: 30px;
+    margin-bottom: 14px;
+}
+
+/* Smooth navigation when moving between sections */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve spacing on smaller screens */
+@media (max-width: 600px) {
+    #about {
+        padding: 25px 20px;
+    }
+
+    #about p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+}
+
+
+/* ========================================
+   MIDNIGHT AURORA - INTERACTIVE EFFECTS
+======================================== */
+
+/* Elegant card hover effect */
+section {
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    border-color: rgba(45, 212, 191, 0.45);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        0 0 24px rgba(20, 184, 166, 0.08);
+}
+
+/* Smooth navigation hover */
+nav a {
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+nav a:hover {
+    background: rgba(20, 184, 166, 0.15);
+    border-color: rgba(45, 212, 191, 0.55);
+    color: #99f6e4;
+    transform: translateY(-2px);
+}
+
+/* Skill cards */
+#skills li {
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+#skills li:hover {
+    background: rgba(20, 184, 166, 0.12);
+    border-color: rgba(45, 212, 191, 0.55);
+    transform: translateY(-3px);
+}
+
+/* Contact button glow */
+#contact button {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+#contact button:hover {
+    filter: brightness(1.12);
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.25);
+}
+
+/* Avoid hover movement on touch devices */
+@media (hover: none) {
+    section:hover {
+        transform: none;
+    }
+
+    #skills li:hover {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   MIDNIGHT AURORA - CONTACT FORM POLISH
+======================================== */
+
+/* Consistent form layout */
+#contact form {
+    max-width: 700px;
+    margin-top: 28px;
+}
+
+/* Clear, readable labels */
+#contact label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccfbf1;
+    font-size: 0.92rem;
+    letter-spacing: 0.2px;
+}
+
+/* Modern input fields */
+#contact input,
+#contact textarea {
+    display: block;
+    width: 100%;
+    padding: 15px 16px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: 12px;
+    background: rgba(4, 20, 24, 0.7);
+    color: #f0fdfa;
+    font: inherit;
+    outline: none;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+/* Placeholder color */
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: #829e9c;
+}
+
+/* Teal focus effect */
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #2dd4bf;
+    background: rgba(7, 34, 37, 0.9);
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+}
+
+/* Comfortable message area */
+#contact textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+/* Professional submit button */
+#contact button {
+    padding: 14px 30px;
+    border: 1px solid rgba(153, 246, 228, 0.25);
+    border-radius: 12px;
+    background: linear-gradient(
+        135deg,
+        #0f766e,
+        #0d9488
+    );
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(13, 148, 136, 0.16);
+}
+
+#contact button:hover {
+    background: linear-gradient(
+        135deg,
+        #0d9488,
+        #14b8a6
+    );
+    box-shadow: 0 10px 28px rgba(20, 184, 166, 0.25);
+}
+
+/* Keyboard accessibility */
+#contact input:focus-visible,
+#contact textarea:focus-visible,
+#contact button:focus-visible {
+    outline: 2px solid #99f6e4;
+    outline-offset: 3px;
+}
+
+/* Mobile-friendly button */
+@media (max-width: 480px) {
+    #contact button {
+        width: 100%;
+    }
+}
+
+
+
+/* ========================================
+   MIDNIGHT AURORA - PREMIUM HEADER
+======================================== */
+
+header {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 75px 20px 45px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(20, 184, 166, 0.18),
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #0b2425,
+            #0a1b22 55%,
+            #102b2b
+        );
+    border-bottom: 1px solid rgba(45, 212, 191, 0.22);
+}
+
+/* Soft decorative glow */
+header::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 280px;
+    height: 280px;
+    top: -190px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #14b8a6;
+    opacity: 0.12;
+    filter: blur(80px);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Premium title styling */
+header h1 {
+    margin-bottom: 16px;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    letter-spacing: -1.6px;
+    text-shadow: 0 0 35px rgba(45, 212, 191, 0.08);
+}
+
+/* Subtitle */
+header p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #a7c5c2;
+    font-size: 1.05rem;
+}
+
+/* Refined navigation */
+nav {
+    gap: 12px;
+    margin-top: 28px;
+}
+
+nav a {
+    padding: 11px 23px;
+    background: rgba(7, 30, 32, 0.65);
+    border: 1px solid rgba(45, 212, 191, 0.18);
+    backdrop-filter: blur(10px);
+}
+
+nav a:hover {
+    background: rgba(20, 184, 166, 0.15);
+    border-color: rgba(94, 234, 212, 0.65);
+    color: #99f6e4;
+    box-shadow: 0 5px 22px rgba(20, 184, 166, 0.12);
+}
+
+/* Smaller header on mobile */
+@media (max-width: 480px) {
+    header {
+        padding: 55px 16px 32px;
+    }
+
+    header h1 {
+        letter-spacing: -0.8px;
+    }
+
+    nav {
+        gap: 9px;
+    }
+
+    nav a {
+        padding: 9px 15px;
+    }
+}
+
+
+
+/* ========================================
+   MIDNIGHT AURORA - FOOTER FINISH
+======================================== */
+
+footer {
+    position: relative;
+    overflow: hidden;
+    padding: 32px 20px;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #091c20,
+        #0b2022
+    );
+    border-top: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+/* Decorative teal line */
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #2dd4bf,
+        transparent
+    );
+}
+
+footer p {
+    color: #a7c5c2;
+    font-size: 0.88rem;
+    letter-spacing: 0.3px;
+    margin: 0;
+}
+
+/* Selection color matches the theme */
+::selection {
+    color: #f0fdfa;
+    background: #0f766e;
+}
+
+/* Better keyboard focus for navigation */
+nav a:focus-visible,
+#about a:focus-visible {
+    outline: 2px solid #5eead4;
+    outline-offset: 4px;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
