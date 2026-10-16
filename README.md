@@ -134,3 +134,34 @@ Mayukh
 ## GitHub Repository
 
 https://github.com/MayukhDas2004/personal-portfolio
+
+
+
+## Week 3: JavaScript Interactivity
+
+### Features
+- Show and hide About Me information.
+- Interactive image gallery with Previous and Next buttons.
+- To-do list with add, complete, delete, and clear-completed features.
+- Contact form validation with custom error messages.
+- Dark/light mode with saved theme preference.
+- Task and theme preferences stored in browser localStorage.
+
+### Technologies
+- HTML5
+- CSS3
+- JavaScript
+- DOM manipulation
+- Event listeners
+- Browser localStorage
+
+### Testing
+- Tested About section toggle.
+- Tested gallery navigation.
+- Tested task creation and completion.
+- Tested contact form validation.
+- Tested theme switching and persistence.
+
+### Limitation
+The contact form performs client-side validation only.
+It does not send emails because no backend or form service is connected.

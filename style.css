@@ -885,3 +885,188 @@ nav a:focus-visible,
     }
 }
 
+
+/* ==========================================
+   WEEK 3 - INTERACTIVE FEATURES
+========================================== */
+
+#aboutContent[hidden] {
+    display: none !important;
+}
+
+#galleryImage {
+    display: block;
+    width: min(100%, 400px);
+    height: 280px;
+    object-fit: cover;
+    margin: 24px auto;
+    border-radius: 18px;
+    border: 2px solid rgba(45, 212, 191, 0.45);
+}
+
+.gallery-container {
+    text-align: center;
+}
+
+.gallery-controls,
+.todo-input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+#gallery button,
+#todo button,
+#toggleAbout,
+#themeToggle {
+    padding: 10px 16px;
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    border-radius: 10px;
+    background: #0f766e;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#gallery button:hover,
+#todo button:hover,
+#toggleAbout:hover,
+#themeToggle:hover {
+    background: #0d9488;
+    transform: translateY(-2px);
+}
+
+.gallery-note {
+    color: #a7c5c2;
+    font-size: 0.9rem;
+}
+
+#todoForm {
+    margin: 24px 0;
+}
+
+#todoInput {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    border: 1px solid rgba(45, 212, 191, 0.3);
+    border-radius: 10px;
+    background: rgba(4, 20, 24, 0.7);
+    color: inherit;
+    font: inherit;
+}
+
+#todoList {
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px;
+    margin: 12px 0;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    border-radius: 12px;
+    background: rgba(20, 184, 166, 0.06);
+}
+
+.todo-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.todo-item .completed {
+    text-decoration: line-through;
+    opacity: 0.65;
+}
+
+.form-error {
+    color: #fca5a5;
+    font-size: 0.9rem;
+    margin: 5px 0 14px;
+}
+
+#formStatus {
+    margin-top: 18px;
+    color: #5eead4;
+}
+
+/* Light mode */
+html.light-mode body {
+    background-color: #f0fdfa;
+    background-image:
+        radial-gradient(
+            ellipse at 10% 10%,
+            rgba(20, 184, 166, 0.12),
+            transparent 40%
+        );
+    color: #173b3a;
+}
+
+html.light-mode header,
+html.light-mode footer {
+    background: linear-gradient(135deg, #ccfbf1, #e0f2fe);
+    color: #123b39;
+    border-color: #99d9d0;
+}
+
+html.light-mode header p,
+html.light-mode footer p,
+html.light-mode .gallery-note {
+    color: #426765;
+}
+
+html.light-mode section {
+    background: rgba(255, 255, 255, 0.92);
+    border-color: #c7e7e2;
+    color: #173b3a;
+}
+
+html.light-mode #todoInput,
+html.light-mode #contact input,
+html.light-mode #contact textarea {
+    background: #ffffff;
+    color: #173b3a;
+    border-color: #a7d8d1;
+}
+
+html.light-mode #contact input::placeholder,
+html.light-mode #contact textarea::placeholder,
+html.light-mode #todoInput::placeholder {
+    color: #668582;
+}
+
+html.light-mode .todo-item {
+    background: #f0fdfa;
+    border-color: #c7e7e2;
+}
+
+html.light-mode nav a {
+    color: #135e57;
+}
+
+@media (max-width: 600px) {
+    #galleryImage {
+        height: 230px;
+    }
+
+    .todo-item {
+        align-items: flex-start;
+    }
+
+    .todo-input-group {
+        align-items: stretch;
+    }
+
+    #todoInput {
+        width: 100%;
+    }
+}
